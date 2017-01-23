@@ -4,7 +4,7 @@
   "description": "This APP aims to provide a helpful method on Japanese learning",
   "main": "index.js",
   "scripts": {
-    "prebuild": "rm -rf ./www && mkdir ./www && cp ./src/app.html ./www/app.html && webpack",
+    "prebuild": "rm -rf ./www && mkdir ./www && cp ./src/app.html ./www/app.html && webpack --config ./webpack.build.config.js",
     "build": "cordova build ios",
     "start": "webpack-dev-server --progress --colors --hot --inline --config ./webpack.config.js"
   },
