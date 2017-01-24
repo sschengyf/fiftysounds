@@ -18,6 +18,8 @@ module.exports = {
 		new CopyWebpackPlugin([{
 			from: 'src/app.html',
 			to: 'app.html'
-		}], {debug: true})
+		}], {
+			debug: true
+		})
 	]
 };
