@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -12,6 +13,9 @@ module.exports = {
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: 'babel-loader'
+		}, {
+			test: /\.scss$/,
+			loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
 		}]
 	},
 	plugins: [
@@ -20,6 +24,7 @@ module.exports = {
 			to: 'app.html'
 		}], {
 			debug: true
-		})
+		}),
+		new ExtractTextPlugin('./css/main.css'),
 	]
 };
