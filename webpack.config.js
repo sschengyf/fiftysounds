@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	devtool: 'source-map',
 	entry: {
@@ -11,6 +13,11 @@ module.exports = {
 		filename: '/js/[name].js',
 		publicPath: 'http://localhost:8080/'
 	},
+	resolve: {
+		root: [
+	    	path.resolve('./src/js')
+	   	]
+	},
 	module: {
 		loaders: [{
 			test: /\.js$/,
@@ -22,6 +29,9 @@ module.exports = {
 		}]
 	},
 	devServer: {
-		contentBase: './src'
+		contentBase: './src',
+		historyApiFallback: {
+	      index: 'app.html'
+	    }
 	}
 };
