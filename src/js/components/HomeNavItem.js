@@ -3,11 +3,16 @@ import { Link } from 'react-router';
 
 class HomeNavItem extends React.Component {
 	render() {
+		let className = 'homenav__item';
+			className += ' homenav__item--background-' + this.props.style;
+
 		return (
-			<div className='homenav__item'>
-				<button className='button'>
-					<Link to={this.props.path}>{this.props.name}</Link>
-				</button>
+			<div className={className}>
+				<Link to={this.props.path}>
+					<button className='button'>
+						{this.props.name}
+					</button>
+				</Link>
 			</div>
 		);
 	}

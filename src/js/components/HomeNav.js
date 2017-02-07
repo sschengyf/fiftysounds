@@ -5,8 +5,8 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<nav className='homenav'>
-				<HomeNavItem path='exam' name='Start the test'/>
-				<HomeNavItem path='learn' name='Learn alphabets'/>
+				<HomeNavItem path='exam' name='Start the test' style='green'/>
+				<HomeNavItem path='learn' name='Learn alphabets' style='yellow'/>
 			</nav>
 		);
 	}
