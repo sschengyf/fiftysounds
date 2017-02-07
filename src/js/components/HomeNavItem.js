@@ -8,7 +8,7 @@ class HomeNavItem extends React.Component {
 
 		return (
 			<div className={className}>
-				<Link to={this.props.path}>
+				<Link to={this.props.path} className='navlink'>
 					<button className='button'>
 						{this.props.name}
 					</button>
