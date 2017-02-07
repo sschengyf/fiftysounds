@@ -1,4 +1,4 @@
-export default const characters = {
+const characters = {
 	a: {
 		h: 'あ',
 		k: 'ア',
@@ -282,3 +282,5 @@ export default const characters = {
 		c: 'n'
 	}
 };
+
+export default characters;
