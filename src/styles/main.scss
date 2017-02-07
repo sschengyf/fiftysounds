@@ -1,17 +1,2 @@
-#app {
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-.homenav__item {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	height: 50%;
-}
-
-.button {
-	border-radius: 10%;
-}
+@import 'reset';
+@import 'components';
