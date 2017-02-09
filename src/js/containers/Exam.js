@@ -1,15 +1,16 @@
 import React from 'react';
 import { getCharacter } from 'utils/CharacterUtils';
+import Paper from 'components/Paper';
 
 export default class Exam extends React.Component {
 	render() {
 		let character = getCharacter();
 		return (
-			<div>
-				<h1>Do some tests</h1>
-				<h2>{character.id}</h2>
-				<h2>{character.data.h}</h2>
-				<h2>{character.data.k}</h2>
+			<div className='exam page'>
+				<h1 className='intro'>Please pronounce alphabet below</h1>
+				<div className='exam__center'>
+					<Paper className='exam__paper' alphabet={character.data.display}/>
+				</div>
 			</div>
 		);
 	}

@@ -10,14 +10,6 @@ html, body {
 	@include whole-fill;
 }
 
-.mainContainer {
-	@include whole-fill;
-}
-
-.homenav {
-	@include whole-fill;
-}
-
 .homenav__item {
 	display: flex;
 	flex-flow: column;
@@ -51,4 +43,29 @@ html, body {
 	.button {
 		@include whole-fill;
 	}
+}
+
+.page {
+	background-color: #fff;
+	@include whole-fill;
+}
+
+.exam {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.paper{
+	font-size: 8rem;
+	box-shadow: 0 0 1.5rem #ddd;
+	padding: 1.5rem;
+	background-color: #F4F9F0;
+	font-weight: 900;
+}
+
+.intro {
+	position: relative;
+	top: -3rem;
 }
