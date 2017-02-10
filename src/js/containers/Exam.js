@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCharacter } from 'utils/CharacterUtils';
 import Paper from 'components/Paper';
+import ExamButton from 'components/ExamButton';
 
 export default class Exam extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ export default class Exam extends React.Component {
 				<h1 className='intro'>Please pronounce alphabet below</h1>
 				<div className='exam__center'>
 					<Paper className='exam__paper' alphabet={character.data.display}/>
+					<ExamButton />
 				</div>
 			</div>
 		);

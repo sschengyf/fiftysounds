@@ -69,3 +69,23 @@ html, body {
 	position: relative;
 	top: -3rem;
 }
+
+.exam__center {
+	text-align: center;
+}
+
+.exam__button {
+	text-align: center;
+	display: inline-block;
+	border: none;
+	outline: none;
+	border-radius: 50%;
+	background-color: #75C12F;
+	color: #fff;
+	width: 3rem;
+	height: 3rem;
+	font-size: 3rem;
+	padding: 1rem;
+	position: relative;
+	top: -2.5rem;
+}
