@@ -1,6 +1,7 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -31,12 +32,12 @@ module.exports = {
 		}]
 	},
 	plugins: [
-		new CopyWebpackPlugin([{
-			from: 'src/app.html',
-			to: 'app.html'
-		}], {
-			debug: true
+		new HtmlWebpackPlugin({
+			template: 'src/app.html',
+        	filename: 'app.html',
+        	excludeAssets: [/main.js/]
 		}),
+		new HtmlWebpackExcludeAssetsPlugin(),
 		new ExtractTextPlugin('./css/main.css'),
 	]
 };

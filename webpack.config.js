@@ -37,7 +37,7 @@ module.exports = {
 	devServer: {
 		contentBase: './src',
 		historyApiFallback: {
-	      index: 'app.html'
+      		index: 'app.html'
 	    }
 	}
 };
