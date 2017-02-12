@@ -80,7 +80,6 @@ html, body {
 	border: none;
 	outline: none;
 	border-radius: 50%;
-	background-color: #75C12F;
 	color: #fff;
 	width: 3rem;
 	height: 3rem;
@@ -88,4 +87,12 @@ html, body {
 	padding: 1rem;
 	position: relative;
 	top: -2.5rem;
+}
+
+.exam__button--pending {
+	background-color: #75C12F;
+}
+
+.exam__button--recording {
+	background-color: #DC8757;
 }
