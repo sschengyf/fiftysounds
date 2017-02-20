@@ -1,0 +1,3 @@
+export const NEXT_CHARACTER = 'NEXT_CHARACTER';
+export const RECORD_VOICE = 'RECORD_VOICE';
+export const RECOGNIZE_VOICE = 'RECOGNIZE_VOICE';

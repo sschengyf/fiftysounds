@@ -74,7 +74,7 @@ html, body {
 	text-align: center;
 }
 
-.exam__button {
+.record__button {
 	text-align: center;
 	display: inline-block;
 	border: none;
@@ -89,10 +89,15 @@ html, body {
 	top: -2.5rem;
 }
 
-.exam__button--pending {
+.record__button--pending {
 	background-color: #75C12F;
 }
 
-.exam__button--recording {
-	background-color: #DC8757;
+.record__button--recording {
+	background-color: #75C12F;
+	border: 3px solid #D37A51;
+}
+
+.record__button--recognizing {
+	background-color: #B5B5B5;
 }

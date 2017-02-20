@@ -1,19 +1,47 @@
 import React from 'react';
 import { getCharacter } from 'utils/CharacterUtils';
 import Paper from 'components/Paper';
-import ExamButton from 'components/ExamButton';
+import RecordButton from 'components/RecordButton';
+import { connect } from 'react-redux';
+import { recordVoice, recognizeVoice } from 'actions/ExamActions';
 
-export default class Exam extends React.Component {
+class Exam extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleTouchStart = this.handleTouchStart.bind(this);
+		this.handleTouchEnd = this.handleTouchEnd.bind(this);
+  	}
+
 	render() {
-		let character = getCharacter();
 		return (
 			<div className='exam page'>
 				<h1 className='intro'>Please pronounce alphabet below</h1>
 				<div className='exam__center'>
-					<Paper className='exam__paper' alphabet={character.data.display}/>
-					<ExamButton />
+					<Paper className='exam__paper' alphabet={this.props.character.data.display}/>
+					<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
 				</div>
 			</div>
 		);
 	}
+
+	handleTouchStart() {
+		console.log('touch'); // ToDo: remove before production
+		const { dispatch } = this.props;
+		dispatch(recordVoice(this.props.character));
+	}
+
+	handleTouchEnd() {
+		console.log('touch end'); // ToDo: remove before production
+		const { dispatch } = this.props;
+		dispatch(recognizeVoice(this.props.character));
+	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		recorderStatus: state.exam.status,
+		character: state.exam.character
+	}
+};
+
+export default connect(mapStateToProps)(Exam);
