@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.sschengyf.fiftysounds"
+        },
+        "cordova-plugin-speechrecognition": {
+            "PACKAGE_NAME": "com.sschengyf.fiftysounds"
         }
     },
     "dependent_plugins": {}
