@@ -4,6 +4,7 @@ import Paper from 'components/Paper';
 import RecordButton from 'components/RecordButton';
 import { connect } from 'react-redux';
 import { recordVoice, recognizeVoice } from 'actions/ExamActions';
+import { Link } from 'react-router';
 
 class Exam extends React.Component {
 	constructor(props) {
@@ -20,6 +21,7 @@ class Exam extends React.Component {
 					<Paper className='exam__paper' alphabet={this.props.character.data.display}/>
 					<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
 				</div>
+				<Link to="/" className="link">Stop test</Link>
 			</div>
 		);
 	}
