@@ -21,7 +21,7 @@ class Exam extends React.Component {
 					<Paper className='exam__paper' alphabet={this.props.character.data.display}/>
 					<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
 				</div>
-				<Link to="/" className="link">Stop test</Link>
+				<Link to="/home" className="link">Stop test</Link>
 			</div>
 		);
 	}

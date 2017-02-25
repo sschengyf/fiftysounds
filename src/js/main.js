@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from 'store/configureStore';
 import App from './containers/App';
@@ -16,7 +16,8 @@ render(
 	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
-				<IndexRoute component={HomeNav} />
+				<IndexRedirect to="/home" />
+				<Route path="/home" component={HomeNav}/>
 				<Route path="/exam" component={Exam}/>
 				<Route path="/learn" component={Learn}/>
 			</Route>
