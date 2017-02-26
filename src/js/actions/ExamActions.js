@@ -43,6 +43,16 @@ export function checkRecognizerPermission() {
 	};
 }
 
+export function requestRecognizerPermission() {
+	return dispatch => {
+		requestPermission().then(success => {
+			dispatch(updateRecognizerPermission(true));
+		}, fail => {
+			dispatch(updateRecognizerPermission(false));
+		});
+	}
+}
+
 export function updateRecognizerPermission(authorized) {
 	return {
 		type: types.UPDATE_RECOGNIZER_AUTHORIZATION,

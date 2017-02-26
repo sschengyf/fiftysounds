@@ -19,11 +19,9 @@ export function requestPermission() {
         }
 
         window.plugins.speechRecognition.requestPermission(res => {
-            console.log('Auth success');
             resolve(res);
-        }, err => {
-            console.log('Auth fail');
-            reject(err);
+        }, fail => {
+            reject(fail);
         });
     });
 }

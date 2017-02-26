@@ -3,7 +3,7 @@ import { getCharacter } from 'utils/CharacterUtils';
 import Paper from 'components/Paper';
 import RecordButton from 'components/RecordButton';
 import { connect } from 'react-redux';
-import { recordVoice, recognizeVoice, checkRecognizerPermission } from 'actions/ExamActions';
+import { recordVoice, recognizeVoice, checkRecognizerPermission, requestRecognizerPermission } from 'actions/ExamActions';
 import { Link } from 'react-router';
 
 class Exam extends React.Component {
@@ -33,14 +33,20 @@ class Exam extends React.Component {
 
 	handleTouchStart() {
 		console.log('touch'); // ToDo: remove before production
-		const { dispatch } = this.props;
-		dispatch(recordVoice(this.props.character));
+		const { dispatch, authorized } = this.props;
+		if (!authorized) {
+			dispatch(requestRecognizerPermission());
+		} else {
+			dispatch(recordVoice(this.props.character));
+		}
 	}
 
 	handleTouchEnd() {
 		console.log('touch end'); // ToDo: remove before production
-		const { dispatch } = this.props;
-		dispatch(recognizeVoice(this.props.character));
+		const { dispatch, authorized } = this.props;
+		if (authorized) {
+			dispatch(recognizeVoice(this.props.character));
+		}
 	}
 }
 
