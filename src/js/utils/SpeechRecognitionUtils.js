@@ -32,12 +32,10 @@ export function startListening() {
             reject('Plugin speechRecognition is unavailalbe');
         }
 
-        window.plugins.speechRecognition.startListening(...responses => {
-            console.log('Record Successfully: ', responses);
-            resolve(...responses);
-        }, ...errors => {
-            console.log('Rcord failed: ', errors);
-            reject(...errors);
+        window.plugins.speechRecognition.startListening(result => {
+            resolve(result);
+        }, error => {
+            reject(error);
         }, {
             language: 'ja-JP'
         });
@@ -50,12 +48,10 @@ export function stopListening() {
             reject('Plugin speechRecognition is unavailalbe');
         }
 
-        window.plugins.speechRecognition.stopListening(function(...res) {
-            console.log('Recognize Successfully: ', res);
-            resove(...res);
-        }, function(...err) {
-            console.log('Recognize failed: ', err);
-            reject(...err)
+        window.plugins.speechRecognition.stopListening(response => {
+            resolve(response);
+        }, error => {
+            reject(error);
         });
     });
 }

@@ -1,6 +1,6 @@
 import * as types from 'constants/ActionTypes';
 import { getCharacter } from 'utils/CharacterUtils';
-import { hasPermission, requestPermission } from 'utils/SpeechRecognitionUtils';
+import { hasPermission, requestPermission, startListening, stopListening } from 'utils/SpeechRecognitionUtils';
 
 export function refreshCharacter() {
 	return {
@@ -9,9 +9,16 @@ export function refreshCharacter() {
 	};
 }
 
-export function recordVoice(character) {
+export function startToRecordVoice(character) {
 	return dispatch => {
 		dispatch(startRecord(character));
+		startListening().then( result => {
+			console.log('Recognition result: ', result);
+		 	let correct = result.includes(character.data.h) || result.includes(character.data.k);
+		 	dispatch(updateRecognitionResult(correct));
+		}, error => {
+			console.log('Recognition error ', error);
+		});
 	}
 }
 
@@ -22,9 +29,22 @@ export function startRecord(character) {
 	};
 }
 
-export function recognizeVoice(character) {
+export function updateRecognitionResult(correct) {
+	return {
+		type: types.UPDATE_VOICE_RECOGNITION_RESULT,
+		correct: correct
+	}
+}
+
+export function stopToRecognizeVoice(character) {
 	return dispatch => {
 		dispatch(startRecogonize(character));
+		stopListening().then(response => {
+			// dispatch(refreshCharacter());
+		}, errors => {
+			console.log('Recognition error: ', errors);
+			// dispatch(refreshCharacter());
+		});
 	}
 }
 
