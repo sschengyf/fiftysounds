@@ -28,14 +28,33 @@ class Exam extends React.Component {
 	render() {
 		return (
 			<div className='exam page'>
-				<h1 className='intro'>Please pronounce alphabet below</h1>
-				<div className='exam__center'>
-					<Paper className='exam__paper' alphabet={this.props.character.data.display}/>
-					<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
-				</div>
+				{this.getExamContent()}
 				<Link to="/home" className="link">Stop test</Link>
 			</div>
 		);
+	}
+
+	getExamContent() {
+		if ('recognized' === this.props.recorderStatus) {
+			return (
+				<div>
+					<h1 className={this.props.correct ? 'exam__result exam__result--correct' : 'exam__result exam__result--incorrect'}>{this.props.correct ? 'Correct!' : 'Incorrect!'}</h1>
+					<div className='result__center'>
+						<Paper character={this.props.character}/>
+					</div>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<h1 className='exam__intro'>Please pronounce alphabet below</h1>
+					<div className='exam__center'>
+						<Paper alphabet={this.props.character.data.display}/>
+						<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
+					</div>
+				</div>
+			);
+		}
 	}
 
 	handleTouchStart() {
@@ -61,6 +80,7 @@ const mapStateToProps = (state) => {
 	return {
 		recorderStatus: state.exam.status,
 		character: state.exam.character,
+		correct: state.exam.correct,
 		authorized: state.recognizer.authorized
 	}
 };

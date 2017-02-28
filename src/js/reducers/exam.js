@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as types from 'constants/ActionTypes';
 
 const initialState = {
     status: 'pending',
@@ -33,7 +33,7 @@ export default function exam(state = initialState, action) {
 
         case types.UPDATE_VOICE_RECOGNITION_RESULT:
             return Object.assign({}, state, {
-                status: 'pending',
+                status: 'recognized',
                 correct: action.correct
             });
 

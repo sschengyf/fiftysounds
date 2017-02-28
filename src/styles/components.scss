@@ -58,21 +58,72 @@ html, body {
 	align-items: center;
 }
 
-.paper{
-	font-size: 8rem;
+.paper {
 	box-shadow: 0 0 1.5rem #ddd;
 	padding: 1.5rem;
 	background-color: #F4F9F0;
-	font-weight: 900;
+    width: 15rem;
+    height: 15rem;
 }
 
-.intro {
+.exam__intro {
 	position: relative;
 	top: -3rem;
+    text-align: center;
+}
+
+.exam__result {
+    @extend .exam__intro;
+    font-size: 2rem;
+}
+
+.exam__result--correct {
+    color: #6DE517;
+}
+
+.exam__result--incorrect {
+    color: #DE0702;
 }
 
 .exam__center {
 	text-align: center;
+    .alphabet__box {
+        @include whole-fill;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .alphabet--testing {
+        font-size: 8rem;
+    }
+}
+
+.result__center {
+    text-align: center;
+    .result__box {
+        @include whole-fill;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        .result__row {
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: baseline;
+            .alphabet--result {
+                .alphabet {
+                    font-size: 3rem;
+                    font-weight: 500;
+                }
+                .alphabet__class {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
 
 .record__button {
