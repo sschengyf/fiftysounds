@@ -2,7 +2,8 @@
 
 html, body {
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: 100;
+    font-family: Avenir;
 	@include whole-fill;
 	user-select: none;
 }
@@ -101,6 +102,7 @@ html, body {
     }
     .alphabet--testing {
         font-size: 8rem;
+        font-family: serif;
     }
 }
 
