@@ -64,21 +64,21 @@ class Exam extends React.Component {
 	}
 
 	handleTouchStart() {
-		console.log('touch'); // ToDo: remove before production
-		const { dispatch, authorized } = this.props;
-		if (!authorized) {
-			dispatch(requestRecognizerPermission());
-		} else {
-			dispatch(startToRecordVoice(this.props.character));
-		}
+		const { dispatch, authorized, recorderStatus } = this.props;
+        if ('pending' === recorderStatus) {
+            if (!authorized) {
+                dispatch(requestRecognizerPermission());
+            } else {
+                dispatch(startToRecordVoice(this.props.character));
+            }
+        }
 	}
 
 	handleTouchEnd() {
-		console.log('touch end'); // ToDo: remove before production
-		const { dispatch, authorized } = this.props;
-		if (authorized) {
-			dispatch(stopToRecognizeVoice(this.props.character));
-		}
+		const { dispatch, authorized, recorderStatus } = this.props;
+        if ('pending' === recorderStatus && authorized) {
+            dispatch(stopToRecognizeVoice(this.props.character));
+        }
 	}
 
     handleClick() {
