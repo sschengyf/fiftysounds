@@ -17,6 +17,7 @@ class Exam extends React.Component {
 		super(props);
 		this.handleTouchStart = this.handleTouchStart.bind(this);
 		this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        this.handleClick = this.handleClick.bind(this);
   	}
 
   	componentWillMount() {
@@ -29,7 +30,7 @@ class Exam extends React.Component {
 		return (
 			<div className='exam page'>
 				{this.getExamContent()}
-				<Link to="/home" className="link">Stop test</Link>
+				<Link to="/home" className="link stop__test__link">Stop test</Link>
 			</div>
 		);
 	}
@@ -37,20 +38,25 @@ class Exam extends React.Component {
 	getExamContent() {
 		if ('recognized' === this.props.recorderStatus) {
 			return (
-				<div>
+				<div className='result__content__container'>
 					<h1 className={this.props.correct ? 'exam__result exam__result--correct' : 'exam__result exam__result--incorrect'}>{this.props.correct ? 'Correct!' : 'Incorrect!'}</h1>
 					<div className='result__center'>
 						<Paper character={this.props.character}/>
 					</div>
+                    <div className='operation__button__wrapper'>
+                        <button className='button button--green' onClick={this.handleClick}>Next one</button>
+                    </div>
 				</div>
 			);
 		} else {
 			return (
-				<div>
+				<div className='exam__content__container'>
 					<h1 className='exam__intro'>Please pronounce alphabet below</h1>
 					<div className='exam__center'>
 						<Paper alphabet={this.props.character.data.display}/>
-						<RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
+                        <div className='operation__button__wrapper'>
+                            <RecordButton {...this.props} touchStartHandler={this.handleTouchStart} touchEndHandler={this.handleTouchEnd}/>
+                        </div>
 					</div>
 				</div>
 			);
@@ -74,6 +80,11 @@ class Exam extends React.Component {
 			dispatch(stopToRecognizeVoice(this.props.character));
 		}
 	}
+
+    handleClick() {
+        const { dispatch } = this.props;
+        dispatch(refreshCharacter());
+    }
 }
 
 const mapStateToProps = (state) => {
