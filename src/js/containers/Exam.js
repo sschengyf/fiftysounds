@@ -76,7 +76,7 @@ class Exam extends React.Component {
 
 	handleTouchEnd() {
 		const { dispatch, authorized, recorderStatus } = this.props;
-        if ('pending' === recorderStatus && authorized) {
+        if ('recording' === recorderStatus && authorized) {
             dispatch(stopToRecognizeVoice(this.props.character));
         }
 	}
