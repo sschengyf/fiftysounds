@@ -17,7 +17,8 @@ export function startToRecordVoice(character) {
 		 	let correct = result.includes(character.data.h) || result.includes(character.data.k);
 		 	dispatch(updateRecognitionResult(correct));
 		}, error => {
-			console.log('Recognition error ', error);
+			console.log('Recognition error: ', error);
+            dispatch(updateRecognitionResult(false));
 		});
 	}
 }
@@ -40,10 +41,10 @@ export function stopToRecognizeVoice(character) {
 	return dispatch => {
 		dispatch(startRecogonize(character));
 		stopListening().then(response => {
-			// dispatch(refreshCharacter());
-		}, errors => {
-			console.log('Recognition error: ', errors);
-			// dispatch(refreshCharacter());
+            // nothing to do
+		}, error => {
+			console.log('Recognition error: ', error);
+			dispatch(updateRecognitionResult(false));
 		});
 	}
 }
