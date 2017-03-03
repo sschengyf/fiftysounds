@@ -21,22 +21,24 @@ html, body {
 }
 
 .homenav__item--background-green {
-	background-color: #4D9925;
+	background: url(../img/background_green.png) center center no-repeat #4D9925;
+    background-size: cover;
 }
 
 .homenav__item--background-yellow {
-	background-color: #E0E163;
+	background: url(../img/background_yellow.png) center center no-repeat #E0E163;
+    background-size: cover;
 }
 
 .button {
-    border-radius: 1.5em;
+    border-radius: 2em;
     background: #fff;
-    padding: 1em 1.5em;
+    padding: 1.2em 2.7778em;
     border: none;
     outline: none;
     box-shadow: none;
     color: #555;
-    font-size: 1.4rem;
+    font-size: 1.125rem;
     font-weight: 100;
 }
 

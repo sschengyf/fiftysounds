@@ -29,7 +29,10 @@ module.exports = {
 		}, {
 			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 			loader: "file-loader?publicPath=../&name=css/fonts/[name].[ext]"
-		}]
+		}, {
+            test: /\.(png|jpg)$/,
+            loader: "file-loader?publicPath=../&name=img/[name].[ext]"
+        }]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
