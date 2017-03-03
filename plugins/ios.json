@@ -7,13 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.sschengyf.fiftysounds"
         },
         "cordova-plugin-speechrecognition": {
             "PACKAGE_NAME": "com.sschengyf.fiftysounds"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.sschengyf.fiftysounds"
         }
     },
