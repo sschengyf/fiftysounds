@@ -1,4 +1,9 @@
 node_modules
-platforms
+/platforms/*
+!/platforms/ios
+/platforms/ios/*
+!platforms/ios/PocketJalphabets
+platforms/ios/PocketJalphabets/*
+!platforms/ios/PocketJalphabets/Images.xcassets
 /www
 npm-debug.log
