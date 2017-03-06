@@ -40,6 +40,8 @@ html, body {
     color: #555;
     font-size: 1.125rem;
     font-weight: 100;
+    font-family: Avenir;
+    white-space: nowrap;
 }
 
 .navlink {
@@ -184,4 +186,21 @@ html, body {
     border: none;
     background-color: #73B936;
     color: #fff;
+}
+
+.learn {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    .learn__page__placeholder {
+        flex-grow: 2;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .learn__page__stoplink {
+        flex-grow: 1;
+    }
 }
