@@ -140,7 +140,7 @@ html, body {
 .record__button {
 	text-align: center;
 	display: inline-block;
-	border: 3px solid transparent;
+	border: 8px solid #fff;
 	outline: none;
 	border-radius: 50%;
 	color: #fff;
@@ -148,6 +148,7 @@ html, body {
 	height: 4rem;
 	font-size: 4rem;
 	padding: 1rem;
+    box-shadow: 0 0 1rem #ddd;
 }
 
 .record__button--pending {
@@ -156,7 +157,7 @@ html, body {
 
 .record__button--recording {
 	background-color: #75C12F;
-	border: 3px solid #D37A51;
+	border: 8px solid #D37A51;
 }
 
 .record__button--recognizing {
