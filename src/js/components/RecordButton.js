@@ -7,7 +7,13 @@ class RecordButton extends React.Component {
 
 		return (
 			<div className={buttonClassName} onTouchStart={this.props.touchStartHandler} onTouchEnd={this.props.touchEndHandler}>
-				<i className={iconClassName}></i>
+				<div className="mc100 p30">
+					<span><i className={iconClassName}></i></span>
+                    <div className="slice">
+                        <div className="bar"></div>
+                        <div className="fill"></div>
+                    </div>
+                </div>
 			</div>
 		);
 	}

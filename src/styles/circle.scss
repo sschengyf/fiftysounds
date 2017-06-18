@@ -1,5 +1,5 @@
 // VARS
-$circle-width: 0.08em;
+$circle-width: 0.1em;
 $circle-width-hover: 0.04em;
 
 // colors default
@@ -35,6 +35,11 @@ $primary-color-orange-dark: #e08833;
 	clip: rect(0em, 0.5em, 1em, 0em);
 	border-radius: 50%;
 	transform: rotate(0deg);
+}
+
+.mpie {
+	@extend .pie;
+	clip: rect(0em, 1em, 1em, 0.5em);
 }
 
 .pie-fill {
@@ -247,5 +252,120 @@ $primary-color-orange-dark: #e08833;
 
 		}
 
+
+}
+
+.mc100 {
+
+	*, *:before, *:after {
+		box-sizing: content-box;
+	}
+
+	position: relative;
+	// font-size: 120px;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: $secondary-color;
+	display: inline-block;
+
+	// center circle to its parent
+	&.center{
+		float: none;
+		margin: 0 auto;
+	}
+
+	// bigger size
+	&.big{
+		font-size: 240px;
+	}
+
+	// smaller size
+	&.small{
+		font-size: 80px;
+	}
+
+	// centered value inside circle
+	> span {
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 2em;
+		line-height: 2em;
+		font-size: 0.5em;
+		color: $secondary-color;
+		display: block;
+		text-align: center;
+		white-space: nowrap;
+		transition-property: all;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-out;
+	}
+
+	// background inside the circle
+	&:after{
+		position: absolute;
+		top: $circle-width;
+		left: $circle-width;
+		display: block;
+		content: " ";
+		border-radius: 50%;
+		background-color: $bg-color;
+		width: 1 - (2 * $circle-width);
+		height: 1 - (2 * $circle-width);
+		transition-property: all;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-in;
+
+	}
+
+	// the slice (mask)
+	.slice {
+		position: absolute;
+		width: 1em;
+		height: 1em;
+		@extend .rect-auto;
+	}
+
+	// circle to show the status
+	.bar {
+		@extend .mpie;
+	}
+
+	.bar:after{
+		@extend .pie-fill;
+	}
+
+	.fill{
+		@extend .mpie;
+		@extend .pie-fill;
+	}
+
+
+	// loop to create all needed elements automatically
+	@for $j from 51 through 100 {
+
+		&.p#{$j} .slice {
+			clip: rect(0em, 0.5em, 1em, 0em);
+		}
+
+		// &.p#{$j} .bar:after{
+		// 	@extend .pie-fill;
+		// }
+
+		&.p#{$j} .fill{
+			@extend .mpie;
+		}
+
+	}
+
+	// loop to rotate all 100 circles
+	@for $j from 1 through 100 {
+		&.p#{$j} .bar {
+			transform: rotate((360/100*$j) + deg);
+		}
+	}
 
 }
