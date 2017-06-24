@@ -14,7 +14,7 @@ export function startToRecordVoice(character) {
 		dispatch(startRecord(character));
 		startListening().then( result => {
 			console.log('Recognition result: ', result);
-            let resultStr = result.join(''),
+            const resultStr = result.join(''),
                 correct = resultStr.includes(character.data.h) || resultStr.includes(character.data.k);
 		 	dispatch(updateRecognitionResult(correct));
 		}, error => {
