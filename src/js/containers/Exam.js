@@ -14,10 +14,6 @@ import {
 } from 'actions/ExamActions';
 import { Link } from 'react-router';
 
-// function() {
-//     Math.floor((10000 - this.props.time)/10000 * 100)
-// }
-
 const examTime = 10000;
 const interval = 100;
 

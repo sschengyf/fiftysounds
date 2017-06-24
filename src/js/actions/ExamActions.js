@@ -83,6 +83,7 @@ export function updateRecognizerPermission(authorized) {
 }
 
 export function startCountdown(time, interval = 100) {
+	// ToDo: figure out a proper way to implement time countdown rather than rely on a variable here to record the time 
 	return dispatch => {
 		let _time = Number(time);
 		const timer = setInterval(() => {
