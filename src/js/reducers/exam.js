@@ -7,10 +7,12 @@ const initialState = {
             display: ''
         }
     },
-    correct: false
+    correct: false,
+    timer: null,
+    time: 0
 };
 
-export default function exam(state = initialState, action) {
+export default function exam(state = initialState, action) { 
     switch (action.type) {
         case types.RECORD_VOICE:
             return Object.assign({}, state, {
@@ -25,16 +27,30 @@ export default function exam(state = initialState, action) {
             });
 
         case types.NEXT_CHARACTER:
-            return {
-                status: 'pending',
-                character: action.character,
-                correct: false
-            };
+            return Object.assign({}, initialState, {
+                character: action.character
+            });
 
         case types.UPDATE_VOICE_RECOGNITION_RESULT:
             return Object.assign({}, state, {
                 status: 'recognized',
                 correct: action.correct
+            });
+
+        case types.START_RECORDER_TIMER:
+            return Object.assign({}, state, {
+                time: action.time,
+                timer: action.timer
+            });
+
+        case types.STOP_RECORDER_TIMER:
+            return Object.assign({}, state, {
+                timer: null
+            });
+
+        case types.UPDATE_RECORDER_TIME:      
+            return Object.assign({}, state, {
+                time: action.time
             });
 
         default:

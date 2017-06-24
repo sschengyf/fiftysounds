@@ -21,7 +21,7 @@ export function startToRecordVoice(character) {
 			console.log('Recognition error: ', error);
             dispatch(updateRecognitionResult(false));
 		});
-	}
+	};
 }
 
 export function startRecord(character) {
@@ -35,7 +35,7 @@ export function updateRecognitionResult(correct) {
 	return {
 		type: types.UPDATE_VOICE_RECOGNITION_RESULT,
 		correct: correct
-	}
+	};
 }
 
 export function stopToRecognizeVoice(character) {
@@ -72,7 +72,7 @@ export function requestRecognizerPermission() {
 		}, fail => {
 			dispatch(updateRecognizerPermission(false));
 		});
-	}
+	};
 }
 
 export function updateRecognizerPermission(authorized) {
@@ -80,4 +80,41 @@ export function updateRecognizerPermission(authorized) {
 		type: types.UPDATE_RECOGNIZER_AUTHORIZATION,
 		authorized: authorized
 	};
+}
+
+export function startCountdown(time, interval = 100) {
+	return dispatch => {
+		let _time = Number(time);
+		const timer = setInterval(() => {
+			_time = _time - interval;		
+			dispatch(updateTime(_time));
+			if (_time <= 0) {
+				dispatch(stopCountdown(timer));
+			}
+		}, interval);
+		dispatch(dispatchTimer(timer, time));
+	};
+}
+
+export function dispatchTimer(timer, time) {
+	return {
+		type: types.START_RECORDER_TIMER,
+		timer,
+		time
+	};
+}
+
+export function stopCountdown(timer) {
+	clearInterval(timer);
+	return {
+		type: types.STOP_RECORDER_TIMER,
+		timer: null
+	};
+}
+
+export function updateTime(time) {
+	return {
+		type: types.UPDATE_RECORDER_TIME,
+		time: time
+	}
 }

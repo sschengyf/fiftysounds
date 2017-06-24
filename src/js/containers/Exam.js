@@ -8,9 +8,18 @@ import {
 	startToRecordVoice,
 	stopToRecognizeVoice,
 	checkRecognizerPermission,
-	requestRecognizerPermission
+	requestRecognizerPermission,
+    startCountdown,
+    stopCountdown
 } from 'actions/ExamActions';
 import { Link } from 'react-router';
+
+// function() {
+//     Math.floor((10000 - this.props.time)/10000 * 100)
+// }
+
+const examTime = 10000;
+const interval = 100;
 
 class Exam extends React.Component {
 	constructor(props) {
@@ -63,20 +72,24 @@ class Exam extends React.Component {
 		}
 	}
 
-	handleTouchStart() {
-		const { dispatch, authorized, recorderStatus } = this.props;
+	handleTouchStart() {      
+		const { dispatch, authorized, recorderStatus, timer } = this.props;
         if ('pending' === recorderStatus) {
             if (!authorized) {
                 dispatch(requestRecognizerPermission());
             } else {
+                if (null === timer) {
+                    dispatch(startCountdown(examTime, interval));
+                }
                 dispatch(startToRecordVoice(this.props.character));
             }
         }
 	}
 
-	handleTouchEnd() {
-		const { dispatch, authorized, recorderStatus } = this.props;
+	handleTouchEnd() {     
+		const { dispatch, authorized, recorderStatus, timer } = this.props;
         if ('recording' === recorderStatus && authorized) {
+            dispatch(stopCountdown(timer));
             dispatch(stopToRecognizeVoice(this.props.character));
         }
 	}
@@ -92,7 +105,10 @@ const mapStateToProps = (state) => {
 		recorderStatus: state.exam.status,
 		character: state.exam.character,
 		correct: state.exam.correct,
-		authorized: state.recognizer.authorized
+		authorized: state.recognizer.authorized,
+        time: state.exam.time,
+        timer: state.exam.timer,
+        progress: Math.floor((examTime - state.exam.time) / examTime * 100)
 	}
 };
 
