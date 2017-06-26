@@ -27,7 +27,7 @@ export default class Paper extends React.Component {
                     </div>
                     <div className='result__row'>
                         <div className='alphabet--result'>
-                            <p className='alphabet'>{this.props.character.id}</p>
+                            <p className='alphabet'>{this.props.character.id.replace('_', '')}</p>
                             <span className='alphabet__class'>Romaji</span>
                         </div>
                         <div className='alphabet--result'>
