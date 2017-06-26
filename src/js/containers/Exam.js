@@ -14,7 +14,7 @@ import {
 } from 'actions/ExamActions';
 import { Link } from 'react-router';
 
-const examTime = 10000;
+const examTime = 5000;
 const interval = 100;
 
 class Exam extends React.Component {
