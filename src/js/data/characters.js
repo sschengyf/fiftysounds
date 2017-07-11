@@ -269,7 +269,7 @@ const characters = {
 		r: 'w',
 		c: 'a'
 	},
-	_o: {
+	wo: {
 		h: 'を',
 		k: 'ヲ',
 		r: 'w',
