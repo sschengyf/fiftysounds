@@ -12,14 +12,17 @@
     "license": "ISC",
     "dependencies": {
         "babel-polyfill": "^6.22.0",
+        "cordova-browser": "~4.1.0",
+        "cordova-ios": "~4.3.1",
+        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-file": "^4.3.3",
+        "cordova-plugin-media": "^3.0.1",
+        "cordova-plugin-whitelist": "1",
         "react": "^15.4.2",
         "react-dom": "^15.4.2",
         "react-redux": "^5.0.2",
         "react-router": "^3.0.2",
-        "redux": "^3.6.0",
-        "cordova-ios": "~4.3.1",
-        "cordova-browser": "~4.1.0",
-        "cordova-plugin-whitelist": "1"
+        "redux": "^3.6.0"
     },
     "devDependencies": {
         "autoprefixer": "^6.7.0",
@@ -50,7 +53,10 @@
             "ios"
         ],
         "plugins": {
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-media": {
+                "MICROPHONE_USAGE_DESCRIPTION": " "
+            }
         }
     }
 }

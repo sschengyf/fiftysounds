@@ -15,7 +15,18 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.sschengyf.fiftysounds"
+        },
+        "cordova-plugin-media": {
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.sschengyf.fiftysounds"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.sschengyf.fiftysounds"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.sschengyf.fiftysounds"
+        }
+    }
 }
