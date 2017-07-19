@@ -263,12 +263,6 @@ const characters = {
 		r: 'w',
 		c: 'a'
 	},
-	wa: {
-		h: 'わ',
-		k: 'ワ',
-		r: 'w',
-		c: 'a'
-	},
 	wo: {
 		h: 'を',
 		k: 'ヲ',
