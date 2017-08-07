@@ -1,16 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { getCharacters } from 'utils/CharacterUtils';
+import AlphabetTable from 'components/AlphabetTable';
 
 export default class Learn extends React.Component {
+    constructor(props) {
+        super(props);
+        this.characters = getCharacters();
+        this.colKeys = ['a', 'i', 'u', 'e', 'o'];
+        this.rowKeys = ['a', 'k', 's', 't', 'n', 'h', 'm', 'y', 'r', 'w', 'nn'];
+    }
+
 	render() {
-        const backStr = '< Go back';
+        const backStr = '<';
 
 		return (
 			<div className='learn page'>
-                <div className='learn__page__placeholder'>
-                    <h1>Coming soon</h1>
+                <div className="page__header">
+                    <Link to="/home" className="link">{backStr}</Link>
+                    <h1>Alphabets</h1>
                 </div>
-                <Link to="/home" className="link learn__page__stoplink">{backStr}</Link>
+                <div className="alphabets__table">
+                    <AlphabetTable characters={this.characters} colKeys={this.colKeys} rowKeys={this.rowKeys}/>
+                </div>
             </div>
 		);
 	}

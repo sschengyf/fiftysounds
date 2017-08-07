@@ -8,25 +8,25 @@ const characters = {
 	i: {
 		h: 'い',
 		k: 'イ',
-		r: 'i',
+		r: 'a',
 		c: 'i'
 	},
 	u: {
 		h: 'う',
 		k: 'ウ',
-		r: 'u',
+		r: 'a',
 		c: 'u'
 	},
 	e: {
 		h: 'え',
 		k: 'エ',
-		r: 'e',
+		r: 'a',
 		c: 'e'
 	},
 	o: {
 		h: 'お',
 		k: 'オ',
-		r: 'o',
+		r: 'a',
 		c: 'o'
 	},
 	ka: {
@@ -272,8 +272,8 @@ const characters = {
 	n: {
 		h: 'ん',
 		k: 'ン',
-		r: 'n',
-		c: 'n'
+		r: 'nn',
+		c: 'a'
 	}
 };
 

@@ -23,3 +23,7 @@ export function getCharacter() {
 		data: randomAlphabetDiaplay(characters[key])
 	};
 }
+
+export function getCharacters() {
+	return characters;
+}

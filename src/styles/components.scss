@@ -179,18 +179,34 @@ html, body {
 }
 
 .learn {
+    .page__header {
+        position: relative;
+        height: 10%;
+        background-color: #ddd;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        .link {
+            position: absolute;
+            left: 10px;
+        }
+    }
+}
+
+.alphabet__table__row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.alphabet__table__row__cell {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
-    .learn__page__placeholder {
-        flex-grow: 2;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .learn__page__stoplink {
-        flex-grow: 1;
-    }
+    padding: 0.4em;
+    border-bottom: 0.1em solid rgba(136, 136, 136, 0.7);
+    border-right: 0.1em solid rgba(136, 136, 136, 0.7);
+    box-sizing: border-box;
 }
