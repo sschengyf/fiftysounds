@@ -8,11 +8,11 @@ class Alphabet extends React.Component {
         };
 
         return (
-            <div className="alphabet__table__row__cell" style={style}>
-                <div>{this.props.character.h}</div>
-                <div>
-                    <span>{this.props.character.key}</span>
-                    <span>{this.props.character.k}</span>
+            <div className="alphabet__table__cell" style={style}>
+                <div className="character__hiragana">{this.props.character.h}</div>
+                <div className="character__associate">
+                    <span className="character__romaji">{this.props.character.key}</span>
+                    <span className="character__katakana">{this.props.character.k}</span>
                 </div>
             </div>
         );
@@ -24,7 +24,7 @@ class Alphabet extends React.Component {
         };
 
         return (
-            <div className="alphabet__table__row__cell" style={style}></div>
+            <div className="alphabet__table__cell" style={style}></div>
         );
     }
 
