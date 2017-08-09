@@ -17,11 +17,15 @@ export default class Learn extends React.Component {
 		return (
 			<div className='learn page'>
                 <div className="page__header">
-                    <Link to="/home" className="link">{backStr}</Link>
-                    <h1>Alphabets</h1>
+                    <nav className="page__nav">
+                        <Link to="/home" className="link">{backStr}</Link>
+                        <h1 className="page__name">Alphabets</h1>  
+                    </nav>
                 </div>
-                <div className="alphabets__table">
-                    <AlphabetTable characters={this.characters} colKeys={this.colKeys} rowKeys={this.rowKeys}/>
+                <div className="page__body">
+                    <div className="alphabets__table">
+                        <AlphabetTable characters={this.characters} colKeys={this.colKeys} rowKeys={this.rowKeys}/>
+                    </div>
                 </div>
             </div>
 		);

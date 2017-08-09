@@ -178,19 +178,30 @@ html, body {
     color: #fff;
 }
 
+$page-header-height: 5rem;
 .learn {
     .page__header {
-        position: relative;
-        height: 10%;
+        width: 100%;
+        position: fixed;
+        height: $page-header-height;
         background-color: #ddd;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         justify-content: center;
-        align-items: center;
-        .link {
-            position: absolute;
-            left: 10px;
-        }
+        align-items: stretch;
+        .page__nav {
+            position: relative;
+            .link {
+                position: absolute;
+                left: 10px;
+            }
+            .page__name {
+                text-align: center;
+            }
+        } 
+    }
+    .page__body {
+        padding-top: $page-header-height;
     }
 }
 
