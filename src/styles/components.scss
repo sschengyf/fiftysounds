@@ -180,9 +180,9 @@ html, body {
 
 $page-header-height: 5rem;
 .learn {
+    overflow: hidden;
     .page__header {
         width: 100%;
-        position: fixed;
         height: $page-header-height;
         background-color: #ddd;
         display: flex;
@@ -201,7 +201,8 @@ $page-header-height: 5rem;
         } 
     }
     .page__body {
-        padding-top: $page-header-height;
+        overflow: auto;
+        height: 100%;
     }
 }
 
