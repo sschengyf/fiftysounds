@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -42,5 +43,8 @@ module.exports = {
 		}),
 		new HtmlWebpackExcludeAssetsPlugin(),
 		new ExtractTextPlugin('./css/main.css'),
+		new CopyWebpackPlugin([
+			{from: 'src/audio', to: 'audio'}
+		])
 	]
 };
