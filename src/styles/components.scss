@@ -213,14 +213,22 @@ $page-header-height: 5rem;
     align-items: stretch;
 }
 .alphabet__table__cell {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.6em 0.4em; 
     border-bottom: 0.1em solid rgba(136, 136, 136, 0.7);
     border-right: 0.1em solid rgba(136, 136, 136, 0.7);
     box-sizing: border-box;
+    .character__wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.6em 0.4em; 
+    }    
+    &.alphabet__table__cell--filled:active {
+        .character__wrapper {
+            transform: scale(0.95, 0.95);
+        }
+        box-shadow: inset 0px 0px 3px 2px rgba(136, 136, 136, 0.6);
+    }
     .character__hiragana {
         font-size: 1.75em;
         margin-bottom: 10%;

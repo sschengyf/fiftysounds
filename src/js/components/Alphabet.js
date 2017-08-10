@@ -17,11 +17,13 @@ class Alphabet extends React.Component {
         };
 
         return (
-            <div className="alphabet__table__cell" style={style} onClick={this.handleClick}>
-                <div className="character__hiragana">{this.props.character.h}</div>
-                <div className="character__associate">
-                    <span className="character__romaji">{this.props.character.key}</span>
-                    <span className="character__katakana">{this.props.character.k}</span>
+            <div className="alphabet__table__cell alphabet__table__cell--filled" style={style} onClick={this.handleClick}>
+                <div className="character__wrapper">
+                    <div className="character__hiragana">{this.props.character.h}</div>
+                    <div className="character__associate">
+                        <span className="character__romaji">{this.props.character.key}</span>
+                        <span className="character__katakana">{this.props.character.k}</span>
+                    </div>
                 </div>
             </div>
         );
