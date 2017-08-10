@@ -203,7 +203,7 @@ $page-header-height: 5rem;
     }
     .page__body {
         overflow: auto;
-        height: 100%;
+        height: calc(100% - #{$page-header-height});
     }
 }
 
