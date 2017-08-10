@@ -1,6 +1,15 @@
 import React from 'react';
+import { playAudio } from 'utils/AudioUtils';
 
 class Alphabet extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        playAudio(this.props.character.key);
+    }
 
     renderWithCharacter() {
         const style = {
@@ -8,7 +17,7 @@ class Alphabet extends React.Component {
         };
 
         return (
-            <div className="alphabet__table__cell" style={style}>
+            <div className="alphabet__table__cell" style={style} onClick={this.handleClick}>
                 <div className="character__hiragana">{this.props.character.h}</div>
                 <div className="character__associate">
                     <span className="character__romaji">{this.props.character.key}</span>
