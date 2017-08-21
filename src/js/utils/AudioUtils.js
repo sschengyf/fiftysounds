@@ -7,8 +7,8 @@ const baseUrl = getPhoneGapPath();
 
 export function playAudio(fileName) {
     if (window.Media) {
-        const media = new Media(`${baseUrl}/audio/${fileName}.mp3`, () => {
-            console.log(`playAudio():Audio Success: ${fileName}.mp3`);
+        const media = new Media(`${baseUrl}/audio/${fileName}.m4a`, () => {
+            console.log(`playAudio():Audio Success: ${fileName}.m4a`);
         }, (error) => {
             console.log(`playAudio():Audio Error: ${error}`);
         });
