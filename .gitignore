@@ -7,3 +7,4 @@ platforms/ios/PocketJalphabets/*
 !platforms/ios/PocketJalphabets/Images.xcassets
 /www
 npm-debug.log
+.idea/
