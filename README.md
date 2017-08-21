@@ -14,9 +14,9 @@ Simply run `npm run build`
 
 ### Previews
 ![s1](./preview/ScreenShot1.png)
-
+---
 ![s2](./preview/ScreenShot2.png)
-
+---
 ![s3](./preview/ScreenShot3.png)
-
+---
 ![s4](./preview/ScreenShot4.png)
