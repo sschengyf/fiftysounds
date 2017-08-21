@@ -1,5 +1,6 @@
 import React from 'react';
 import AlphabetRow from 'components/AlphabetRow';
+import PropTypes from 'prop-types';
 
 class AlphabetTable extends React.Component {
     render() {
@@ -11,7 +12,7 @@ class AlphabetTable extends React.Component {
             }
             charKeys.forEach((charKey) => {
                 const char = Object.assign(this.props.characters[charKey], {key: charKey});
-                if (rowKey ===  char.r) {
+                if (rowKey === char.r) {
                     rows[rowKey][char.c] = char;
                 }
             })
@@ -21,7 +22,8 @@ class AlphabetTable extends React.Component {
             <div className="alphabet__table">
                 {
                     this.props.rowKeys.map((rowKey, index) => {
-                        return (<AlphabetRow key={index} row={rows[rowKey]} colKeys={this.props.colKeys} rowKey={rowKey}/>);
+                        return (
+                            <AlphabetRow key={index} row={rows[rowKey]} colKeys={this.props.colKeys} rowKey={rowKey}/>);
                     })
                 }
             </div>
@@ -30,9 +32,9 @@ class AlphabetTable extends React.Component {
 }
 
 AlphabetTable.propTypes = {
-    characters: React.PropTypes.object.isRequired,
-    colKeys: React.PropTypes.array.isRequired,
-    rowKeys: React.PropTypes.array.isRequired
+    characters: PropTypes.object.isRequired,
+    colKeys: PropTypes.array.isRequired,
+    rowKeys: PropTypes.array.isRequired
 };
 
 export default AlphabetTable;

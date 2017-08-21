@@ -1,5 +1,6 @@
 import React from 'react';
-import { playAudio } from 'utils/AudioUtils';
+import {playAudio} from 'utils/AudioUtils';
+import PropTypes from 'prop-types';
 
 class Alphabet extends React.Component {
     constructor(props) {
@@ -17,7 +18,8 @@ class Alphabet extends React.Component {
         };
 
         return (
-            <div className="alphabet__table__cell alphabet__table__cell--filled" style={style} onClick={this.handleClick}>
+            <div className="alphabet__table__cell alphabet__table__cell--filled" style={style}
+                 onClick={this.handleClick}>
                 <div className="character__wrapper">
                     <div className="character__hiragana">{this.props.character.h}</div>
                     <div className="character__associate">
@@ -49,7 +51,7 @@ class Alphabet extends React.Component {
 }
 
 Alphabet.propTypes = {
-    character: React.PropTypes.object.isRequired
+    character: PropTypes.object.isRequired
 };
 
 export default Alphabet;

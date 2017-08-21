@@ -1,5 +1,6 @@
 import React from 'react';
 import Alphabet from 'components/Alphabet';
+import PropTypes from 'prop-types';
 
 class AlphabetRow extends React.Component {
     render() {
@@ -24,8 +25,8 @@ class AlphabetRow extends React.Component {
 }
 
 AlphabetRow.propTypes = {
-    row: React.PropTypes.object.isRequired,
-    colKeys: React.PropTypes.array.isRequired
+    row: PropTypes.object.isRequired,
+    colKeys: PropTypes.array.isRequired
 };
 
 export default AlphabetRow;
